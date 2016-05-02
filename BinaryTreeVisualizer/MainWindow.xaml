@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BinaryTreeVisualizer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="480" Width="640">
+    <Grid Width="640" Height="480">
+        <TextBox x:Name="val" HorizontalAlignment="Left" Height="23" Margin="547,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="insert" Content="Insert " HorizontalAlignment="Left" Margin="547,40,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="delete" Content="Delete" HorizontalAlignment="Left" Margin="547,67,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="findMin" Content="Find Min" HorizontalAlignment="Left" Margin="547,94,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="findMax" Content="Find Max" HorizontalAlignment="Left" Margin="547,121,0,0" VerticalAlignment="Top" Width="75"/>
+        <StackPanel Name="mainStack">
+            <Label Content="5" Width="50"/>
+            <Label Content="10" Width="50" Margin="295,0"/>
+        </StackPanel>
     </Grid>
 </Window>
