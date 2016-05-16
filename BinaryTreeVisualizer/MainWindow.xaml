@@ -12,9 +12,7 @@
         <Button x:Name="delete" Content="Delete" HorizontalAlignment="Left" Margin="547,67,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="findMin" Content="Find Min" HorizontalAlignment="Left" Margin="547,94,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="findMax" Content="Find Max" HorizontalAlignment="Left" Margin="547,121,0,0" VerticalAlignment="Top" Width="75"/>
-        <StackPanel Name="mainStack">
-            <Label Content="5" Width="50"/>
-            <Label Content="10" Width="50" Margin="295,0"/>
-        </StackPanel>
+        <Grid Name="treeGrid" Margin="0,0,98,0">
+        </Grid>
     </Grid>
 </Window>

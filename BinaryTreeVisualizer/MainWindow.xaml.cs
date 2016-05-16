@@ -28,35 +28,51 @@ namespace BinaryTreeVisualizer
 
         private void InitShowTree()
         {
-            DoShowTree(BinarySearchTree.Root, 1, 0);
+            const int BaseLeftMargin = 255;
+            const int BaseRightMargin = 255;
+            const int BaseTopMargin = 10;
+            const int BaseBottomMargin = 440;
+
+            Thickness margin = new Thickness
+            {
+                Left = BaseLeftMargin,
+                Top = BaseTopMargin,
+                Right = BaseRightMargin,
+                Bottom = BaseBottomMargin
+            };
+            DoShowTree(BinarySearchTree.Root, 0, margin);
         }
 
-        private void DoShowTree(Node<int> node, int currentHeight, double leftMargin)
+        private void DoShowTree(Node<int> node, int currentHeight, Thickness margin)
         {
             if (node == null)
             {
                 return;
             }
 
-            Thickness margin = new Thickness
-            {
-                //Top = currentHeight * 5,
-                Left = leftMargin
-            };
             Label label = new Label { Content = node.Data, Margin = margin, Width = 20 };
 
-            if (mainStack.Children.Count < currentHeight)
-            {
-                var newStackPanel = new StackPanel { Background = brushes[currentHeight % brushes.Count] };
-                mainStack.Children.Add(newStackPanel);
-            }
+            treeGrid.Children.Add(label);
 
-            var thisStackPanel = (StackPanel)mainStack.Children[currentHeight - 1];
-            thisStackPanel.Children.Add(label);
+            Thickness newLeftMargin = new Thickness
+            {
+                Top = margin.Top + 50,
+                Left = margin.Left - 25,
+                Right = margin.Right + 25,
+                Bottom = margin.Bottom - 50
+            };
+
+            Thickness newRightMargin = new Thickness
+            {
+                Top = margin.Top + 50,
+                Left = margin.Left + 25,
+                Right = margin.Right - 25,
+                Bottom = margin.Bottom - 50
+            };
 
             // Show children
-            DoShowTree(node.Left, currentHeight + 1, Math.Abs(margin.Left + 25) * -2);
-            DoShowTree(node.Right, currentHeight + 1, Math.Abs(margin.Left + 25) * 2);
+            DoShowTree(node.Left, currentHeight + 1, newLeftMargin);
+            DoShowTree(node.Right, currentHeight + 1, newRightMargin);
         }
 
         private BinarySearchTree<int> BinarySearchTree;
